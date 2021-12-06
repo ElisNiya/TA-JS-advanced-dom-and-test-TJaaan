@@ -2896,3 +2896,36 @@ let quotes = [
     quoteAuthor: 'Byron Pulsifer',
   },
 ];
+
+
+let box = document.querySelector(".box");
+
+quotes.forEach((ele) => {
+  let li = document.createElement("li");
+  li.innerText = ele.quoteText;
+  box.append(li);
+});
+
+document.documentElement.getBoundingClientRect().top = -1400;
+document.documentElement.getBoundingClientRect().bottom = 600;
+
+function randomQuotes() {
+  let randomNum = Math.floor(Math.random() * quotes.length);
+  return `<p><strong>"${quotes[randomNum].quoteText}"</strong> by ${quotes[randomNum].quoteAuthor}</p>`;
+}
+
+function populate() {
+  while (true) {
+    let windowRelativeBottom = document.documentElement.getBoundingClientRect()
+      .bottom;
+
+    if (windowRelativeBottom > document.documentElement.clientHeight + 100)
+      break;
+
+    document.body.insertAdjacentHTML("beforeend", randomQuotes());
+  }
+}
+
+window.addEventListener("scroll", populate);
+
+populate();
