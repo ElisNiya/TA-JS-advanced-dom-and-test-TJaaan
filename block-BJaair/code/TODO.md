@@ -13,3 +13,5 @@
 ![DEMO](https://github.com/nnnkit/ac-js-images/blob/master/adv-dom/notice-board.gif?raw=true)
 
 ![Notice Board](./notice.png)
+
+add()
